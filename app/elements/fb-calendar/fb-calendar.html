@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="../../bower_components/moment/moment.js"></script>
+
+<polymer-element name="fb-calendar" attributes="start end">
+  <template>
+    <link rel="stylesheet" href="fb-calendar.css">
+
+    <table class="calendar" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="calendar-times">
+            <template repeat="{{t in time}}">
+              <div class="calendar-times-time">
+                {{t | formatMoment('h:mm')}} <span>{{t | formatMoment('A')}}</span>
+              </div>
+            </template>
+          </td>
+          <td class="calendar-events">
+            <content select="fb-event"></content>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        start: '9:00',
+        end: '12:00',
+
+        ready: function() {
+          this.initTimesArray();
+        },
+
+        initTimesArray: function() {
+          var start = moment(this.start, 'H:mm'),
+            end = moment(this.end, 'H:mm');
+
+          // Validate
+          if (end.isBefore(start)) {
+            console.error('Calendar start time must be before end time');
+            return;
+          }
+
+          this.time = [];
+
+          for(; end.diff(start, 'seconds') >= 0; start.add(30, 'minute')) {
+            this.time.push(start.clone());
+          }
+        },
+
+        formatMoment: function(value, format) {
+          return value.format(format);
+        }
+      });
+
+    })();
+  </script>
+</polymer-element>
