@@ -21,14 +21,18 @@
         </tr>
       </tbody>
     </table>
+
   </template>
   <script>
     (function () {
       'use strict';
 
       Polymer({
-        start: '9:00',
-        end: '12:00',
+        publish: {
+          start: '9:00',
+          end: '12:00',
+          time: []
+        },
 
         ready: function() {
           this.initTimesArray();
@@ -36,15 +40,13 @@
 
         initTimesArray: function() {
           var start = moment(this.start, 'H:mm'),
-            end = moment(this.end, 'H:mm');
+            end = moment(this.end, 'H:mm'),
+            isValidRange = start.isBefore(end);
 
-          // Validate
-          if (end.isBefore(start)) {
+          if (!isValidRange) {
             console.error('Calendar start time must be before end time');
             return;
           }
-
-          this.time = [];
 
           for(; end.diff(start, 'seconds') >= 0; start.add(30, 'minute')) {
             this.time.push(start.clone());

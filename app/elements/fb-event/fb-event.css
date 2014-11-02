@@ -1,4 +1,19 @@
 :host {
-  border: 1px solid black;
+  border: 1px solid #d6d6d6;
+  border-left: 5px solid #4c6fa9;
+  background: #ffffff;
   display: block;
+  padding: 5px;
+}
+
+h2 {
+  margin: 0;
+  color: #3b5998;
+  font-size: 16px;
+}
+
+p {
+  margin: 0;
+  color: #4e5665;
+  font-size: 12px;
 }
