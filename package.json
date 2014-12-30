@@ -1,6 +1,16 @@
 {
   "name": "fbcodingchallenge",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "Calendar events layout coding challenge",
+  "main": "lib/git-q.js",
+  "author": {
+    "name": "Hady Osman",
+    "email": "hadyos@gmail.com",
+    "url": "http://hady.geek.nz"
+  },
+  "scripts": {
+    "test": "grunt mocha:dev"
+  },
   "dependencies": {},
   "devDependencies": {
     "connect-livereload": "~0.4.0",
@@ -28,5 +38,6 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "license": "MIT"
 }

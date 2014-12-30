@@ -5,9 +5,7 @@
 
 # Library Folders
 node_modules
-
-# Solution Folders
-dist
-test/temp
-test/bower_components/
 app/bower_components
+
+# Build Folders
+dist
