@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>fb-calendar-init</title>
+  <title>ho-calendar-init</title>
 
   <script src="../bower_components/platform/platform.js"></script>
   <link rel="import" href="../bower_components/polymer-test-tools/tools.html">
@@ -10,17 +10,17 @@
   </script>
 
   <!-- Import Elements for Unit Test -->
-  <link rel="import" href="../elements/fb-calendar/fb-calendar.html">
+  <link rel="import" href="../elements/ho-calendar/ho-calendar.html">
 
 </head>
 <body>
 
-  <fb-calendar start="9:00" end="13:00"></fb-calendar>
+  <ho-calendar start="9:00" end="13:00"></ho-calendar>
 
   <script>
 
     document.addEventListener('polymer-ready', function() {
-      var el = document.querySelector('fb-calendar'),
+      var el = document.querySelector('ho-calendar'),
         times = el.shadowRoot.querySelectorAll('.calendar-times-time');
 
       assert.equal(times.length, 9);

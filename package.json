@@ -1,7 +1,7 @@
 {
-  "name": "fbcodingchallenge",
+  "name": "calendarapp-codingchallenge",
   "version": "0.0.1",
-  "description": "Calendar events layout coding challenge",
+  "description": "Calendar app coding challenge",
   "main": "lib/git-q.js",
   "author": {
     "name": "Hady Osman",

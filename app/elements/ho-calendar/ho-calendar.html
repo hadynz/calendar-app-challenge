@@ -8,9 +8,9 @@
 <script src="lib/collision-group.js"></script>
 <script src="lib/event-layout.js"></script>
 
-<polymer-element name="fb-calendar" attributes="start end">
+<polymer-element name="ho-calendar" attributes="start end">
   <template>
-    <link rel="stylesheet" href="fb-calendar.css">
+    <link rel="stylesheet" href="ho-calendar.css">
 
     <table class="calendar" cellpadding="0" cellspacing="0">
       <tbody>
@@ -29,7 +29,7 @@
           <div class="calendar-events--container">
 
             <template repeat="{{event in events}}">
-              <fb-event eventdata="{{event}}"></fb-event>
+              <ho-event eventdata="{{event}}"></ho-event>
             </template>
 
           </div>
@@ -123,13 +123,13 @@
         },
 
         /**
-         * Parses `fb-event` elements that have been declared in the light DOM and
+         * Parses `ho-event` elements that have been declared in the light DOM and
          * re-creates them in the shadow DOM after their layout has been calculated
          *
          * @method createEventsFromLightDom
          */
         createEventsFromLightDom: function () {
-          var eventEls = this.querySelectorAll('fb-event'),
+          var eventEls = this.querySelectorAll('ho-event'),
             count = eventEls.length,
             rawEvents = [];
 

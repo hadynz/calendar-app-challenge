@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>fb-calendar-init</title>
+  <title>ho-calendar-init</title>
 
   <script src="../bower_components/platform/platform.js"></script>
   <link rel="import" href="../bower_components/polymer-test-tools/tools.html">
@@ -10,24 +10,24 @@
   </script>
 
   <!-- Import Elements for Unit Test -->
-  <link rel="import" href="../elements/fb-calendar/fb-calendar.html">
+  <link rel="import" href="../elements/ho-calendar/ho-calendar.html">
 
 </head>
 <body>
 
-  <fb-calendar start="9:00" end="13:00">
-    <fb-event start="30" end="150"></fb-event>"
-    <fb-event start="540" end="600"></fb-event>"
-    <fb-event start="560" end="620"></fb-event>"
-  </fb-calendar>
+  <ho-calendar start="9:00" end="13:00">
+    <ho-event start="30" end="150"></ho-event>"
+    <ho-event start="540" end="600"></ho-event>"
+    <ho-event start="560" end="620"></ho-event>"
+  </ho-calendar>
 
   <script>
 
     document.addEventListener('polymer-ready', function() {
-      var calendar = document.querySelector('fb-calendar');
+      var calendar = document.querySelector('ho-calendar');
 
       setTimeout(function() {
-        var eventEls = calendar.shadowRoot.querySelectorAll('fb-event');
+        var eventEls = calendar.shadowRoot.querySelectorAll('ho-event');
         assert.equal(eventEls.length, 3);
 
         done();
