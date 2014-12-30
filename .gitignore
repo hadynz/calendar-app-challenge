@@ -1,8 +1,13 @@
+# Dot Folders
+.sass-cache
+.tmp
+.idea
+
+# Library Folders
 node_modules
+
+# Solution Folders
 dist
 test/temp
-.sass-cache
-app/bower_components
-.tmp
 test/bower_components/
-.idea
+app/bower_components
