@@ -1,5 +1,12 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<script src="../../bower_components/es5-shim/es5-shim.min.js"></script>
 <script src="../../bower_components/moment/moment.js"></script>
+
+<script src="lib/event-utils.js"></script>
+<script src="lib/event.js"></script>
+<script src="lib/collision-group.js"></script>
+<script src="lib/event-layout.js"></script>
 
 <polymer-element name="fb-calendar" attributes="start end">
   <template>
@@ -7,18 +14,27 @@
 
     <table class="calendar" cellpadding="0" cellspacing="0">
       <tbody>
-        <tr>
-          <td class="calendar-times">
-            <template repeat="{{t in time}}">
-              <div class="calendar-times-time">
-                {{t | formatMoment('h:mm')}} <span>{{t | formatMoment('A')}}</span>
-              </div>
+      <tr>
+        <td class="col calendar-times">
+
+          <template repeat="{{t in time}}">
+            <div class="calendar-times-time">
+              {{t | formatMoment('h:mm')}} <span>{{t | formatMoment('A')}}</span>
+            </div>
+          </template>
+
+        </td>
+        <td class="col calendar-events">
+          <div class="calendar-events--overlay"></div>
+          <div class="calendar-events--container">
+
+            <template repeat="{{event in events}}">
+              <fb-event eventdata="{{event}}"></fb-event>
             </template>
-          </td>
-          <td class="calendar-events">
-            <content select="fb-event"></content>
-          </td>
-        </tr>
+
+          </div>
+        </td>
+      </tr>
       </tbody>
     </table>
 
@@ -29,16 +45,58 @@
 
       Polymer({
         publish: {
+
+          /**
+           * Sets the Calendar start time
+           *
+           * @property start
+           * @type String
+           * @default '9:00'
+           */
           start: '9:00',
-          end: '12:00',
-          time: []
+
+          /**
+           * Sets the Calendar end time
+           *
+           * @property end
+           * @type String
+           * @default '12:00'
+           */
+          end: '12:00'
         },
 
-        ready: function() {
-          this.initTimesArray();
+        /**
+         * Array of `Moment` time increments that is used by the template to render
+         * the calendar time labels
+         *
+         * @property time
+         * @type Array
+         * @default []
+         */
+        time: [],
+
+        /**
+         * Array of `Event` objects that is populated by the component after layout
+         * calculations for the calendar is made in tandem
+         *
+         * @property events
+         * @type Array
+         * @default []
+         */
+        events: [],
+
+        ready: function () {
+          this.generateCalendarTimes();
+          this.createEventsFromLightDom();
         },
 
-        initTimesArray: function() {
+        /**
+         * Generates time labels for the calendar in 30min increments based on the
+         * `start` and `end` time attributes defined for the calendar
+         *
+         * @method generateCalendarTimes
+         */
+        generateCalendarTimes: function () {
           var start = moment(this.start, 'H:mm'),
             end = moment(this.end, 'H:mm'),
             isValidRange = start.isBefore(end);
@@ -48,14 +106,86 @@
             return;
           }
 
-          for(; end.diff(start, 'seconds') >= 0; start.add(30, 'minute')) {
+          for (; end.diff(start, 'seconds') >= 0; start.add(30, 'minute')) {
             this.time.push(start.clone());
           }
         },
 
-        formatMoment: function(value, format) {
+        /**
+         * Filter extension that formats a Moment object based on a given format string
+         *
+         * @method formatMethod
+         * @param {String} value Moment object
+         * @param {String} format String format to use for time formatting
+         */
+        formatMoment: function (value, format) {
           return value.format(format);
+        },
+
+        /**
+         * Parses `fb-event` elements that have been declared in the light DOM and
+         * re-creates them in the shadow DOM after their layout has been calculated
+         *
+         * @method createEventsFromLightDom
+         */
+        createEventsFromLightDom: function () {
+          var eventEls = this.querySelectorAll('fb-event'),
+            count = eventEls.length,
+            rawEvents = [];
+
+          for (var i = 0; i < count; i++) {
+            var eventEl = eventEls[i],
+              start = eventEl.getAttribute('start'),
+              end = eventEl.getAttribute('end');
+
+            rawEvents.push({start: parseInt(start, 10), end: parseInt(end, 10)});
+          }
+
+          if (rawEvents.length > 0) {
+            this.layoutEvents(rawEvents);
+          }
+        },
+
+        /**
+         * Parses an array of event objects with `start` and `end` key/values
+         * to an array of `Event` objects that have their layout calculated. The
+         * `Event` objects are published and hence rendered on screen
+         *
+         * @method layoutEvents
+         * @param {Array} rawEvents
+         */
+        layoutEvents: function (rawEvents) {
+          this.validateEvents(rawEvents);
+
+          var eventLayout = new EventLayout(rawEvents);
+          this.events = eventLayout.events();
+        },
+
+        validateEvents: function (rawEvents) {
+          var isStartAfterEnd = function (event) {
+              return event.start >= event.end;
+            },
+            missingMandatoryFields = function (event) {
+              return !('start' in event && 'end' in event);
+            };
+
+          if (!Array.isArray(rawEvents)) {
+            throw new Error('Events must be an array');
+          }
+
+          if (rawEvents.length === 0) {
+            throw new Error('At least one event is required');
+          }
+
+          if (rawEvents.some(missingMandatoryFields)) {
+            throw new Error('Either start or end times are missing from event');
+          }
+
+          if (rawEvents.some(isStartAfterEnd)) {
+            throw new Error('Event end time must be greater than start time');
+          }
         }
+
       });
 
     })();

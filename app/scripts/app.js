@@ -1,15 +1,4 @@
-(function(document) {
-  'use strict';
-
-  document.addEventListener('polymer-ready', function() {
-    // Perform some behaviour
-    console.log('Polymer is ready to rock!');
-  });
-
-// wrap document so it plays nice with other libraries
-// http://www.polymer-project.org/platform/shadow-dom.html#wrappers
-})(wrap(document));
-
+/* exported layOutDay */
 
 /**
  * Clears and creates new events for the current calendar day.
@@ -22,5 +11,8 @@
  * @param Array events
  */
 function layOutDay(events) {
-  console.log('Loading new calendar events', events);
+  'use strict';
+
+  var calendar = document.querySelector('fb-calendar');
+  calendar.layoutEvents(events);
 }

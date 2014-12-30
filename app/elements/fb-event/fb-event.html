@@ -1,16 +1,112 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="fb-event" attributes="">
+<polymer-element name="fb-event" attributes="start, end, eventdata, name, description">
   <template>
     <link rel="stylesheet" href="fb-event.css">
-    <h2>Sample Item</h2>
-    <p>Description of sample item</p>
+    <div id="wrapper" class="fb-event-container">
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+    </div>
   </template>
   <script>
     (function () {
       'use strict';
 
-      Polymer({ });
+      Polymer({
+        publish: {
+
+          /**
+           * Event start time in minutes since 9am
+           *
+           * @property start
+           * @type Number
+           * @default 0
+           */
+          start: 0,
+
+          /**
+           * Event end time in minutes since 9am
+           *
+           * @property end
+           * @type Number
+           * @default 0
+           */
+          end: 0,
+
+          /**
+           * An `Event` object with calculated presentation information
+           *
+           * @property eventdata
+           * @type Event
+           * @default null
+           */
+          eventdata: null,
+
+          /**
+           * Default event name
+           *
+           * @property name
+           * @type String
+           * @default 'Sample Item'
+           */
+          name: 'Sample Item',
+
+          /**
+           * Default event description
+           *
+           * @property description
+           * @type String
+           * @default 'Sample Location'
+           */
+          description: 'Sample Location'
+        },
+
+        ready: function() {
+
+          // This can be null if element is created in the light DOM
+          if (!this.eventdata) {
+            return;
+          }
+
+          var layout = this.calculateLayout();
+
+          // Position Event
+          this.style.top = layout.top;
+          this.style.left = layout.left;
+
+          // Set Dimensions
+          this.style.width = layout.width;
+          this.$.wrapper.style.height = layout.height;
+
+          // To Help in Debugging - set title if ones exists
+          this.name = this.eventdata.id || this.name;
+        },
+
+        /**
+         * Calculates dimension (width and height) and position (top and left)
+         * of current event to be used in a style attribute for absolute
+         * positioning and laying out on calendar screen
+         *
+         * @method calculateLayout
+         * @return {Object} Calculated dimension and positions for layout
+         */
+        calculateLayout: function() {
+          var halfHourPixelHeight = 30,
+            toPixelFactor = halfHourPixelHeight / 30,
+            width = (100 / this.eventdata.columns),
+            left = width * this.eventdata.columnOffset,
+            top = this.eventdata.start * toPixelFactor,
+            height = (this.eventdata.end - this.eventdata.start) * toPixelFactor;
+
+          return {
+            width: width + '%',
+            left: left + '%',
+            top: top + 'px',
+            height: height + 'px'
+          };
+        }
+
+      });
 
     })();
   </script>

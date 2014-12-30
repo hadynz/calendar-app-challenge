@@ -247,11 +247,20 @@ module.exports = function (grunt) {
       // Update `url` below to the public URL for your site
       mobile: {
         options: {
-          url: "https://developers.google.com/web/fundamentals/",
-          locale: "en_GB",
-          strategy: "mobile",
+          url: 'https://developers.google.com/web/fundamentals/',
+          locale: 'en_GB',
+          strategy: 'mobile',
           threshold: 80
         }
+      }
+    },
+    mocha: {
+      options: {
+        run: true,
+        logErrors: true
+      },
+      dev: {
+        src: ['<%= yeoman.app %>/elements/*/test/index.html']
       }
     }
   });
@@ -277,6 +286,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'mocha:dev',
     'clean:server',
     'connect:test'
   ]);

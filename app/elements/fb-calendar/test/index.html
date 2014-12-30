@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Unit tests</title>
+
+  <!-- Mocha & Chai imports -->
+  <link rel="stylesheet" media="all" href="../../../bower_components/polymer-test-tools/mocha/mocha.css">
+  <script src="../../../bower_components/polymer-test-tools/mocha/mocha.js"></script>
+  <script src="../../../bower_components/polymer-test-tools/chai/chai.js"></script>
+  <script src="../../../bower_components/es5-shim/es5-shim.min.js"></script>
+
+  <!-- Library imports being unit tested -->
+  <script src="../lib/event-utils.js"></script>
+  <script src="../lib/event.js"></script>
+  <script src="../lib/collision-group.js"></script>
+  <script src="../lib/event-layout.js"></script>
+
+</head>
+<body>
+
+  <div id="mocha"></div>
+  <div id="messages"></div>
+  <div id="fixtures"></div>
+
+
+  <script>mocha.setup('bdd')</script>
+
+  <script src="event-utils.js"></script>
+  <script src="event-layout.js"></script>
+  <script src="collision-group.js"></script>
+
+  <script>mocha.run();</script>
+
+</body>
+</html>
