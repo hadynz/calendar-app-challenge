@@ -1,5 +1,4 @@
-calendar-app-challenge
-======================
+# Demo: calendar-app-challenge
 
 GitHub Pages demo branch for the Calendar App coding challenge.
 
