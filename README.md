@@ -43,7 +43,7 @@ the calendar accordingly.
 
 ## Test Scenarios
 
-[Sample test scenarios](http://bit.ly/1vrptyB) with their expected visual layouts were created according to the 
+[Sample test scenarios][test-scenarios] with their expected visual layouts were created according to the 
 coding challenge rules. The following are some compiled examples to use in a browser's console to have a squiz at 
 how the application updates and renders different event layouts.
 
@@ -96,6 +96,8 @@ layOutDay([
 
 ## License
 
-Copyright (c) 2014 Hady Osman
+Copyright (c) 2014 Hady Osman  
+Licensed under the [MIT][license] license.
 
-Licensed under the [MIT](blob/master/LICENSE) license.
+[test-scenarios]: http://bit.ly/1vrptyB
+[license]: blob/master/LICENSE
