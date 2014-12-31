@@ -262,6 +262,9 @@ module.exports = function (grunt) {
       dev: {
         src: ['<%= yeoman.app %>/elements/*/test/index.html']
       }
+    },
+    'bower-install-simple': {
+      all: {}
     }
   });
 
@@ -292,6 +295,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'bower-install-simple',
     'clean:dist',
     'copy',
     'useminPrepare',
