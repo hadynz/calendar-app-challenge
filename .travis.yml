@@ -4,5 +4,7 @@ language: node_js
 # Switch Sudo off to use Travi's new and fast Docker infrastructure
 sudo: false
 
-# Make sure `grunt-cli` is available globally before we proceed
+# Make sure `grunt-cli` is installed, and project is build before proceeding
 before_install: npm install -g grunt-cli
+install: npm install
+before_script: grunt build
