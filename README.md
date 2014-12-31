@@ -100,4 +100,4 @@ Copyright (c) 2014 Hady Osman
 Licensed under the [MIT][license] license.
 
 [test-scenarios]: http://bit.ly/1vrptyB
-[license]: blob/master/LICENSE
+[license]: https://github.com/hadynz/calendar-app-challenge/blob/master/LICENSE
