@@ -1,0 +1,76 @@
+<div hidden><!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<style shim-shadowdom="">html /deep/ [layout][horizontal],html /deep/ [layout][vertical]{display:-ms-flexbox;display:-webkit-flex;display:flex}html /deep/ [layout][horizontal][inline],html /deep/ [layout][vertical][inline]{display:-ms-inline-flexbox;display:-webkit-inline-flex;display:inline-flex}html /deep/ [layout][horizontal]{-ms-flex-direction:row;-webkit-flex-direction:row;flex-direction:row}html /deep/ [layout][horizontal][reverse]{-ms-flex-direction:row-reverse;-webkit-flex-direction:row-reverse;flex-direction:row-reverse}html /deep/ [layout][vertical]{-ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column}html /deep/ [layout][vertical][reverse]{-ms-flex-direction:column-reverse;-webkit-flex-direction:column-reverse;flex-direction:column-reverse}html /deep/ [layout][wrap]{-ms-flex-wrap:wrap;-webkit-flex-wrap:wrap;flex-wrap:wrap}html /deep/ [layout][wrap-reverse]{-ms-flex-wrap:wrap-reverse;-webkit-flex-wrap:wrap-reverse;flex-wrap:wrap-reverse}html /deep/ [flex]{-ms-flex:1 1 0;-webkit-flex:1;flex:1;-webkit-flex-basis:0;flex-basis:0}html /deep/ [vertical][layout]>[flex][auto-vertical],html /deep/ [vertical][layout]::shadow [flex][auto-vertical]{-ms-flex:1 1 auto;-webkit-flex-basis:auto;flex-basis:auto}html /deep/ [flex][auto]{-ms-flex:1 1 auto;-webkit-flex-basis:auto;flex-basis:auto}html /deep/ [flex][none]{-ms-flex:none;-webkit-flex:none;flex:none}html /deep/ [flex][one]{-ms-flex:1;-webkit-flex:1;flex:1}html /deep/ [flex][two]{-ms-flex:2;-webkit-flex:2;flex:2}html /deep/ [flex][three]{-ms-flex:3;-webkit-flex:3;flex:3}html /deep/ [flex][four]{-ms-flex:4;-webkit-flex:4;flex:4}html /deep/ [flex][five]{-ms-flex:5;-webkit-flex:5;flex:5}html /deep/ [flex][six]{-ms-flex:6;-webkit-flex:6;flex:6}html /deep/ [flex][seven]{-ms-flex:7;-webkit-flex:7;flex:7}html /deep/ [flex][eight]{-ms-flex:8;-webkit-flex:8;flex:8}html /deep/ [flex][nine]{-ms-flex:9;-webkit-flex:9;flex:9}html /deep/ [flex][ten]{-ms-flex:10;-webkit-flex:10;flex:10}html /deep/ [flex][eleven]{-ms-flex:11;-webkit-flex:11;flex:11}html /deep/ [flex][twelve]{-ms-flex:12;-webkit-flex:12;flex:12}html /deep/ [layout][start]{-ms-flex-align:start;-webkit-align-items:flex-start;align-items:flex-start}html /deep/ [layout][center],html /deep/ [layout][center-center]{-ms-flex-align:center;-webkit-align-items:center;align-items:center}html /deep/ [layout][end]{-ms-flex-align:end;-webkit-align-items:flex-end;align-items:flex-end}html /deep/ [layout][start-justified]{-ms-flex-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start}html /deep/ [layout][center-justified],html /deep/ [layout][center-center]{-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center}html /deep/ [layout][end-justified]{-ms-flex-pack:end;-webkit-justify-content:flex-end;justify-content:flex-end}html /deep/ [layout][around-justified]{-ms-flex-pack:distribute;-webkit-justify-content:space-around;justify-content:space-around}html /deep/ [layout][justified]{-ms-flex-pack:justify;-webkit-justify-content:space-between;justify-content:space-between}html /deep/ [self-start]{-ms-align-self:flex-start;-webkit-align-self:flex-start;align-self:flex-start}html /deep/ [self-center]{-ms-align-self:center;-webkit-align-self:center;align-self:center}html /deep/ [self-end]{-ms-align-self:flex-end;-webkit-align-self:flex-end;align-self:flex-end}html /deep/ [self-stretch]{-ms-align-self:stretch;-webkit-align-self:stretch;align-self:stretch}html /deep/ [block]{display:block}html /deep/ [hidden]{display:none!important}html /deep/ [relative]{position:relative}html /deep/ [fit]{position:absolute;top:0;right:0;bottom:0;left:0}body[fullbleed]{margin:0;height:100vh}html /deep/ [segment],html /deep/ segment{display:block;position:relative;-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;margin:1em .5em;padding:1em;background-color:#fff;-webkit-box-shadow:0 0 0 1px rgba(0,0,0,.1);box-shadow:0 0 0 1px rgba(0,0,0,.1);border-radius:5px}</style>
+
+<script src="../vendor/polymer/polymer.js"></script>
+<!--<link rel="import" href="../polymer-dev/polymer.html">-->
+
+<script src="../vendor/es5-shim/es5-shim.min.js"></script>
+<script src="../vendor/moment/moment.js"></script>
+
+<script src="ho-calendar/lib/event-utils.js"></script>
+<script src="ho-calendar/lib/event.js"></script>
+<script src="ho-calendar/lib/collision-group.js"></script>
+<script src="ho-calendar/lib/event-layout.js"></script>
+
+<polymer-element name="ho-calendar" attributes="start end" assetpath="ho-calendar/">
+  <template>
+    <style>*,:after,:before{box-sizing:border-box}:host{display:block;font-family:Helvetica,Arial,'lucida grande',tahoma,verdana,arial,sans-serif}.calendar{width:100%}.col{vertical-align:top}.calendar-times{width:80px;color:#333;padding-right:10px;position:relative;top:-15px}.calendar-events--overlay{background:#ececec;border-left:1px solid #d5d5d5;position:absolute;top:0;bottom:30px;left:0;right:0}.calendar-times-time{text-align:right;font-weight:700;font-size:15px;color:#4e5665;line-height:30px;height:30px}.calendar-times-time span,.calendar-times-time:nth-of-type(even){font-weight:400;font-size:10px;color:#9197a3}.calendar-times-time:nth-of-type(even) span{display:none}.calendar-events{position:relative}.calendar-events--container{position:relative;margin:0 10px}</style>
+
+    <table class="calendar" cellpadding="0" cellspacing="0">
+      <tbody>
+      <tr>
+        <td class="col calendar-times">
+
+          <template repeat="{{t in time}}">
+            <div class="calendar-times-time">
+              {{t | formatMoment('h:mm')}} <span>{{t | formatMoment('A')}}</span>
+            </div>
+          </template>
+
+        </td>
+        <td class="col calendar-events">
+          <div class="calendar-events--overlay"></div>
+          <div class="calendar-events--container">
+
+            <template repeat="{{event in events}}">
+              <ho-event eventdata="{{event}}"></ho-event>
+            </template>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </template>
+  <script>(function(){"use strict";Polymer("ho-calendar",{publish:{start:"9:00",end:"12:00"},time:[],events:[],ready:function(){this.generateCalendarTimes();this.createEventsFromLightDom()},generateCalendarTimes:function(){var start=moment(this.start,"H:mm"),end=moment(this.end,"H:mm"),isValidRange=start.isBefore(end);if(!isValidRange){console.error("Calendar start time must be before end time");return}for(;end.diff(start,"seconds")>=0;start.add(30,"minute")){this.time.push(start.clone())}},formatMoment:function(value,format){return value.format(format)},createEventsFromLightDom:function(){var eventEls=this.querySelectorAll("ho-event"),count=eventEls.length,rawEvents=[];for(var i=0;i<count;i++){var eventEl=eventEls[i],start=eventEl.getAttribute("start"),end=eventEl.getAttribute("end");rawEvents.push({start:parseInt(start,10),end:parseInt(end,10)})}if(rawEvents.length>0){this.layoutEvents(rawEvents)}},layoutEvents:function(rawEvents){this.validateEvents(rawEvents);var eventLayout=new EventLayout(rawEvents);this.events=eventLayout.events()},validateEvents:function(rawEvents){var isStartAfterEnd=function(event){return event.start>=event.end},missingMandatoryFields=function(event){return!("start"in event&&"end"in event)};if(!Array.isArray(rawEvents)){throw new Error("Events must be an array")}if(rawEvents.length===0){throw new Error("At least one event is required")}if(rawEvents.some(missingMandatoryFields)){throw new Error("Either start or end times are missing from event")}if(rawEvents.some(isStartAfterEnd)){throw new Error("Event end time must be greater than start time")}}})})();</script>
+</polymer-element>
+</div><div hidden>
+
+<polymer-element name="ho-event" attributes="start, end, eventdata, name, description" assetpath="ho-event/">
+  <template>
+    <style>*,:after,:before{box-sizing:border-box}:host{background:#fff;display:block;position:absolute;top:0;width:100%;font-family:Helvetica,Arial,'lucida grande',tahoma,verdana,arial,sans-serif;-webkit-animation:fade 2s;animation:fade 2s}.event-container{border:1px solid #d6d6d6;border-left:4px solid #4c6fa9;padding:5px}h2{margin:0;color:#3b5998;font-size:14px}p{margin:0;color:#4e5665;font-size:10px}@-webkit-keyframes fade{from{opacity:0}to{opacity:1}}@keyframes fade{from{opacity:0}to{opacity:1}}</style>
+    <div id="wrapper" class="event-container">
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+    </div>
+  </template>
+  <script>(function(){"use strict";Polymer("ho-event",{publish:{start:0,end:0,eventdata:null,name:"Sample Item",description:"Sample Location"},ready:function(){if(!this.eventdata){return}var layout=this.calculateLayout();this.style.top=layout.top;this.style.left=layout.left;this.style.width=layout.width;this.$.wrapper.style.height=layout.height;this.name=this.eventdata.id||this.name},calculateLayout:function(){var halfHourPixelHeight=30,toPixelFactor=halfHourPixelHeight/30,width=100/this.eventdata.columns,left=width*this.eventdata.columnOffset,top=this.eventdata.start*toPixelFactor,height=(this.eventdata.end-this.eventdata.start)*toPixelFactor;return{width:width+"%",left:left+"%",top:top+"px",height:height+"px"}}})})();</script>
+</polymer-element>
+</div>

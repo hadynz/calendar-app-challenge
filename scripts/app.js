@@ -1,0 +1,1 @@
+function layOutDay(a){"use strict";var b=document.querySelector("ho-calendar");b.layoutEvents(a)}
