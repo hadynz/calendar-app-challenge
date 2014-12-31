@@ -1,4 +1,4 @@
-calendarapp-challenge
+calendar-app-challenge
 =====================
 
 [![Build Status](https://travis-ci.org/hadynz/calendarapp-challenge.svg)](https://travis-ci.org/hadynz/calendarapp-challenge)
