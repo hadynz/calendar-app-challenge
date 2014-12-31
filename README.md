@@ -97,4 +97,5 @@ layOutDay([
 ## License
 
 Copyright (c) 2014 Hady Osman
+
 Licensed under the [MIT](blob/master/LICENSE) license.
