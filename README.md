@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hadynz/calendar-app-challenge.svg)](https://travis-ci.org/hadynz/calendar-app-challenge)
 
-Calendar app coding challenge.
+Calendar app coding challenge. Demo page is at http://hady.geek.nz/calendar-app-challenge.
 
 ## Introduction
 I was approached by an organisation to do a very intriguing coding challenge as part of their recruitment process. The challenge had three basic rules (detailed in the following section) and a screenshot of the expected output's look and feel.
@@ -44,6 +44,8 @@ Unknown to me initially, this problem turned out to be a very tricky algorithm c
 The front end was built using custom web components built on top of the [Polymer framework][polymer]. I used the awesome [Polymer Yeoman generator][generator-polymer] for scaffolding the project and getting up and running really quickly.
 
 Other frameworks used in the solution are [MomentJS][momentjs] for date and time manipulation, and a [Mocha][mochajs] and [Chai][chaijs] combo for my unit tests.
+
+The key learning from this coding challenge is coming up with valid test scenarios in an early stage, and using test-driven development, keep chipping at the problem in code. Writing small and modular modules was key in reducing the challenge's complexity into smaller pieces that were easy to think and solve individually.
 
 ## Test Scenarios
 
@@ -108,5 +110,5 @@ Licensed under the [MIT][license] license.
 [polymer]: https://www.polymer-project.org/
 [generator-polymer]: https://github.com/yeoman/generator-polymer
 [momentjs]: http://momentjs.com/
-[mocohajs]: http://mochajs.org/
+[mochajs]: http://mochajs.org/
 [chaijs]: http://chaijs.com/
