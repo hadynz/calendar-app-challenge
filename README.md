@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/hadynz/calendar-app-challenge.svg)](https://travis-ci.org/hadynz/calendar-app-challenge)
 
-Calendar app coding challenge
+Calendar app coding challenge.
 
 ## Introduction
-...
+I was approached by an organisation to do a very intriguing coding challenge as part of their recruitment process. The challenge had three basic rules (detailed in the following section) and a screenshot of the expected output's look and feel.
 
-## Coding Challenge
+## The Code Challenge
 
 Given a set of events, render the events on a single day calendar (similar to Outlook, Calendar.app, and 
 Google Calendar). There are several properties of the layout:
@@ -39,7 +39,11 @@ the calendar accordingly.
 ```
 
 ## Solution
-...
+Unknown to me initially, this problem turned out to be a very tricky algorithm challenge around the laying out of events whilst taken into account event clashes taking place in the day. Best way to see my solution is to walk through the code; it's heavily commented.
+
+The front end was built using custom web components built on top of the [Polymer framework][polymer]. I used the awesome [Polymer Yeoman generator][generator-polymer] for scaffolding the project and getting up and running really quickly.
+
+Other frameworks used in the solution are [MomentJS][momentjs] for date and time manipulation, and a [Mocha][mochajs] and [Chai][chaijs] combo for my unit tests.
 
 ## Test Scenarios
 
@@ -101,3 +105,8 @@ Licensed under the [MIT][license] license.
 
 [test-scenarios]: http://bit.ly/1vrptyB
 [license]: https://github.com/hadynz/calendar-app-challenge/blob/master/LICENSE
+[polymer]: https://www.polymer-project.org/
+[generator-polymer]: https://github.com/yeoman/generator-polymer
+[momentjs]: http://momentjs.com/
+[mocohajs]: http://mochajs.org/
+[chaijs]: http://chaijs.com/
